@@ -16,7 +16,8 @@
  */
 
 #include "UdpComm.h"
-#include <Logger.h>
+#include "Logger.h"
+
 
 
 UdpComm::UdpComm() {
@@ -33,7 +34,7 @@ UdpComm::~UdpComm() {
 }
 
 void
-UdpComm::onPulseUdpRx(UdpConnection& connection, char *data, int size, IPAddress remoteIP, uint16_t remotePort) {
+UdpComm::onPulseUdpRx(UdpConnection& connection, char *data, int size, IpAddress remoteIP, uint16_t remotePort) {
 	bool ok = false;
 	if (data != NULL) {
 		Command* cmd = CommandFactory::parseData(data, size);
@@ -47,7 +48,7 @@ UdpComm::onPulseUdpRx(UdpConnection& connection, char *data, int size, IPAddress
 }
 
 void
-UdpComm::onUdpRx(UdpConnection& connection, char *data, int size, IPAddress remoteIP, uint16_t remotePort) {
+UdpComm::onUdpRx(UdpConnection& connection, char *data, int size, IpAddress remoteIP, uint16_t remotePort) {
 	bool ok = false;
 	for (int i = 0; i < size; ++i) {
 		if (data[i] == '\r') {
@@ -74,7 +75,7 @@ UdpComm::onUdpRx(UdpConnection& connection, char *data, int size, IPAddress remo
 void
 UdpComm::sendDiscovery() {
 	mUdp->sendTo(WifiAccessPoint.getNetworkBroadcast(), Defines::PULSE_DISCOVERY_PORT, (const char*)mDiscoveryData, 2);
-	if (WifiStation.getConnectionStatus() == EStationConnectionStatus::eSCS_GotIP) {
+	if (WifiStation.getConnectionStatus() == StationConnectionStatus::eSCS_GotIP) {
 		mUdp->sendTo(WifiStation.getNetworkBroadcast(), Defines::PULSE_DISCOVERY_PORT, (const char*)mDiscoveryData, 2);
 	}
 }

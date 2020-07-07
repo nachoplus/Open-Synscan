@@ -39,11 +39,11 @@ public:
 
     static const char* asString(Level level);
 
-	IPAddress mRemoteIP;
+	IpAddress mRemoteIP;
 	uint16_t mRemotePort = 0;
 	UdpConnection* mUdp = NULL;
 
-	void onUdpRx(UdpConnection& connection, char *data, int size, IPAddress remoteIP, uint16_t remotePort);
+	void onUdpRx(UdpConnection& connection, char *data, int size, IpAddress remoteIP, uint16_t remotePort);
 
 private:
     Logger();

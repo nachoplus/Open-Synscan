@@ -19,8 +19,8 @@
 #define DEFINES_H_
 
 #include <WString.h>
-#include <Logger.h>
-#include <SmingCore/SmingCore.h>
+#include "Logger.h"
+#include <SmingCore.h>
 
 struct Defines {
 	static const u32 LOG_PORT = 6667;

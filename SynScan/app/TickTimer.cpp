@@ -48,11 +48,11 @@ static void IRAM_ATTR tick_timer_isr_cb(void *arg)
 }
 
 TickTimer::TickTimer() {
-	ETS_FRC_TIMER1_INTR_ATTACH((void*)tick_timer_isr_cb, (void *) this);
+	ETS_FRC_TIMER1_INTR_ATTACH(tick_timer_isr_cb,  this);
 }
 
 TickTimer::~TickTimer() {
-	ETS_FRC_TIMER1_INTR_ATTACH((void*)tick_timer_isr_cb, (void*)null);
+	ETS_FRC_TIMER1_INTR_ATTACH(tick_timer_isr_cb, null);
 	stop();
 }
 

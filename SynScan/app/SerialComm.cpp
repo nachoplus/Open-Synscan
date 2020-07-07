@@ -16,13 +16,13 @@
  */
 
 #include "SerialComm.h"
-#include <Logger.h>
+#include "Logger.h"
 
 
 SerialComm::SerialComm() {
 	mSerial = new HardwareSerial(UART_ID_1);
 	mSerial->begin(9600);
-	mSerial->setCallback(StreamDataReceivedDelegate(&SerialComm::onCharRx, this));
+	mSerial->onDataReceived(StreamDataReceivedDelegate(&SerialComm::onCharRx, this));
 }
 
 SerialComm::~SerialComm() {

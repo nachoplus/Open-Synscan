@@ -1,13 +1,12 @@
 ## Local build configuration
 ## Parameters configured here will override default and ENV values.
 ## Uncomment and change examples:
-SMING_HOME=/home/vsirvent/src/Sming.new/Sming/
 
 ifndef SMING_HOME
 $(error SMING_HOME is not set. Please configure it in Makefile-user.mk)
 endif
 
-include $(SMING_HOME)/Makefile-linux.mk
+#include $(SMING_HOME)/Makefile
 
 #Add your source directories here separated by space
 MODULES = app

@@ -31,7 +31,7 @@ Logger::~Logger() {
 }
 
 void
-Logger::onUdpRx(UdpConnection& connection, char *data, int size, IPAddress remoteIP, uint16_t remotePort) {
+Logger::onUdpRx(UdpConnection& connection, char *data, int size, IpAddress remoteIP, uint16_t remotePort) {
 	if (memcmp(data, "log on", 6) == 0) {
 		mRemoteIP = remoteIP;
 		mRemotePort = remotePort;

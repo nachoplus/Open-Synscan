@@ -15,8 +15,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <user_config.h>
-#include <SmingCore/SmingCore.h>
+#include <SmingCore.h>
 #include "Logger.h"
 #include "MainApp.h"
 
@@ -50,7 +49,7 @@ void init() {
 
 	// Soft access point
 	WifiAccessPoint.enable(true);
-	WifiAccessPoint.setIP(IPAddress("192.168.5.1"));
+	WifiAccessPoint.setIP(IpAddress("192.168.5.1"));
 	WifiAccessPoint.config("SynScan", "12345678", AUTH_WPA2_PSK, false, 5);
 	WifiStation.enable(true);
 #ifdef WIFI_STATION

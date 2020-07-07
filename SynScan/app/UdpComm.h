@@ -18,18 +18,18 @@
 #ifndef UDPCOMM_H_
 #define UDPCOMM_H_
 
-#include <Comm.h>
+#include "Comm.h"
 
 class UdpComm: public Comm {
 private:
-	IPAddress mBroadcast;
-	IPAddress mRemoteIP;
+	IpAddress mBroadcast;
+	IpAddress mRemoteIP;
 	uint16_t mRemotePort = 0;
 	UdpConnection* mUdp = NULL;
 	UdpConnection* mPulseUdp = NULL;
 	u8 mDiscoveryData[2];
-	void onUdpRx(UdpConnection& connection, char *data, int size, IPAddress remoteIP, uint16_t remotePort);
-	void onPulseUdpRx(UdpConnection& connection, char *data, int size, IPAddress remoteIP, uint16_t remotePort);
+	void onUdpRx(UdpConnection& connection, char *data, int size, IpAddress remoteIP, uint16_t remotePort);
+	void onPulseUdpRx(UdpConnection& connection, char *data, int size, IpAddress remoteIP, uint16_t remotePort);
 
 public:
 
