@@ -51,6 +51,7 @@ private:
 	int mPecPeriod = 0;
 	int mPosition = 0x800000;
 	int mTargetPosition = INFINITE;
+	int mTargetStepPeriod = INFINITE;
 	int mOrigPosition = INFINITE;
 
 	int mBreakCount = 0;

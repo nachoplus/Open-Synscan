@@ -67,7 +67,7 @@ Motor::Motor(EAxis axis) {
 	Serial.printf("STEPS_PER_WORM_REV = %d\n", STEPS_PER_WORM_REV);
 	Serial.printf("STEPS_PER_RA_REV = %d\n", STEPS_PER_RA_REV);
 	Serial.printf("SIDERAL_STEP_COUNT = %f\n", SIDERAL_STEP_COUNT);
-	Serial.printf("SIDERAL_PERIOD_FREQ = %d\n", SIDERAL_PERIOD_FREQ);
+	Serial.printf("SIDERAL_PERIOD_FREQ = %f\n", SIDERAL_PERIOD_FREQ);
 	Serial.printf("TIMER_FREQ = %d\n", Defines::TIMER_FREQ);
 
 	m100msecTimer = new Timer();

@@ -37,3 +37,7 @@ DISABLE_SPIFFS = 0
 SPIFF_FILES = web/dev
 
 ## Refer to Basic_rBoot sample for options relating to rBoot
+
+SPI_MODE=DIO
+SPI_SIZE=4M
+#COM_PORT=/dev/ttyUSB0
