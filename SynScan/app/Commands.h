@@ -315,7 +315,7 @@ public:
 	}
 
 	String toString() const override {
-		char ret[11];
+		char ret[12];
 		sprintf(ret, "=%X%X%X000\r", b0, b1, b2);
 		return ret;
 	}
