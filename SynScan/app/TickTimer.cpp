@@ -30,14 +30,11 @@ static void IRAM_ATTR tick_timer_isr_cb(void *arg)
 }
 
 TickTimer::TickTimer() {
-	//ETS_FRC_TIMER1_INTR_ATTACH(tick_timer_isr_cb,  this);
 	hw_timer1_attach_interrupt(TIMER_FRC1_SOURCE, tick_timer_isr_cb,this );
 }
 
 TickTimer::~TickTimer() {
-	//ETS_FRC_TIMER1_INTR_ATTACH(tick_timer_isr_cb, null);
 	hw_timer1_detach_interrupt();
-	//hw_timer1_attach_interrupt(TIMER_FRC1_SOURCE, tick_timer_isr_cb,null );
 	stop();
 }
 
@@ -62,8 +59,6 @@ bool TickTimer::start(bool repeating) {
 		hw_timer1_enable(TIMER_CLKDIV_16,TIMER_EDGE_INT,false);
 	}
 
-	//TM1_EDGE_INT_ENABLE();
-	//ETS_FRC1_INTR_ENABLE();
 	mStarted = true;
 
 	hw_timer1_write(mInternal);
@@ -74,8 +69,7 @@ bool TickTimer::stop() {
 	if (!mStarted) {
 		return mStarted;
 	}
-	//TM1_EDGE_INT_DISABLE();
-	//ETS_FRC1_INTR_DISABLE();
+	hw_timer1_disable();
 	mStarted = false;
 	return mStarted;
 }
