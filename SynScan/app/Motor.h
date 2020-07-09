@@ -22,6 +22,41 @@
 #include "Commands.h"
 #include "TickTimer.h"
 
+//BOARDS PINOUT
+
+//ESP12F
+#if 1
+//AXIS_RA MOTOR PINOUT
+#define AXIS_RA_DIR_PIN       4
+#define AXIS_RA_STEP_PIN      5
+#define AXIS_RA_MODE1_PIN     2
+#define AXIS_RA_MODE2_PIN    15
+
+//AXIS_DEC MOTOR PINOUT
+//THERE IS A MISTAKE IN THE SCHEMATICS
+#define AXIS_DEC_DIR_PIN      13
+#define AXIS_DEC_STEP_PIN     12
+#define AXIS_DEC_MODE1_PIN    14
+#define AXIS_DEC_MODE2_PIN    16
+#endif
+
+
+//ESP8266MOD
+#if 0
+//AXIS_RA MOTOR PINOUT
+#define AXIS_RA_DIR   16
+#define AXIS_RA_STEP  14
+#define AXIS_RA_MODE1 12
+#define AXIS_RA_MODE2 13
+
+//AXIS_DEC MOTOR PINOUT
+#define AXIS_DEC_DIR    4
+#define AXIS_DEC_STEP   0
+#define AXIS_DEC_MODE1  1
+#define AXIS_DEC_MODE2 15
+#endif
+
+
 class Motor: public ITickListener {
 public:
 	static const u8 VERSION_MAJOR = 2;

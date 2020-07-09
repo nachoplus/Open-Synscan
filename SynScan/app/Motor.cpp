@@ -27,18 +27,18 @@ Motor::Motor(EAxis axis) {
 			axis == EAxis::AXIS_RA ? "RA" : "DEC");
 	mAxis = axis;
 	if (mAxis == EAxis::AXIS_RA) {
-		mDirPin = 4;
-		mStepPin = 5;
-		mMode[0] = 2;
-		mMode[1] = 15;
+		mDirPin = AXIS_RA_DIR_PIN;
+		mStepPin = AXIS_RA_STEP_PIN;
+		mMode[0] = AXIS_RA_MODE1_PIN;
+		mMode[1] = AXIS_RA_MODE2_PIN;
 		mMaxCount = 9484409;
 		mMinCount = 4288680;
 		mPosition = degreeToPosition(0.0f);
 	} else if (mAxis == EAxis::AXIS_DEC) {
-		mDirPin = 13;
-		mStepPin = 12;
-		mMode[0] = 14;
-		mMode[1] = 16;
+		mDirPin = AXIS_DEC_DIR_PIN;
+		mStepPin = AXIS_DEC_STEP_PIN;
+		mMode[0] = AXIS_DEC_MODE1_PIN;
+		mMode[1] = AXIS_DEC_MODE2_PIN;
 		mMaxCount = degreeToPosition(165.0f);
 		mMinCount = degreeToPosition(15.0f);
 		mPosition = degreeToPosition(90.0f);
@@ -597,7 +597,7 @@ Motor::processCommand(const Command* cmd) {
 		if (ext->getType() == GetExtended::EType::STATUS_EX) {
 			StatusExReply* status_reply = new StatusExReply();
 			status_reply->setDualEncSupport(false);
-			status_reply->setEQAZModeSupport(false);
+			status_reply->setEQAZModeSupport(true);
 			status_reply->setHasPolarLed(false);
 			status_reply->setOriginalIdxPosSupport(false);
 			status_reply->setPPECSupport(false);
